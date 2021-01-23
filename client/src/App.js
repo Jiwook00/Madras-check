@@ -7,22 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fixedData: [
-        { id: 1, name: "bat" },
-        { id: 2, name: "cmd" },
-        { id: 3, name: "com" },
-      ],
-      customData: [
-        { id: 1, name: "tes1" },
-        { id: 2, name: "test2" },
-        { id: 3, name: "test3" },
-        { id: 4, name: "tes1" },
-        { id: 5, name: "test2" },
-        { id: 6, name: "test3" },
-        { id: 7, name: "tes1" },
-        { id: 8, name: "test2" },
-        { id: 9, name: "test3" },
-      ],
+      fixedData: [],
+      customData: [],
       inputCustom: "",
     };
   }
@@ -58,9 +44,14 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then(() => this.fetchCustomData())
-      .then(() => this.setState({ inputCustom: "" }));
+    }).then((data) => {
+      if (data.status === 400) {
+        alert("이미 있는 확장자 입니다.");
+      } else if (data.status === 201) {
+        this.fetchCustomData();
+        this.setState({ inputCustom: "" });
+      }
+    });
   };
 
   componentDidMount() {
