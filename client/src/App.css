@@ -1,0 +1,34 @@
+input {
+  font-size: 1.1rem;
+}
+
+header {
+  font-size: 40px;
+  border-bottom: 1px solid;
+  margin-right: 200px;
+  margin-left: 16px;
+}
+
+.custom-input {
+  margin-left: 20px;
+}
+
+.fixed {
+  margin-left: 20px;
+}
+
+.explain {
+  margin-left: 20px;
+}
+
+.custom-list {
+  width: 323px;
+  height: 160px;
+  padding: 20px;
+  border-left: 109px;
+  margin-left: 105px;
+  margin-top: 13px;
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-top: 10px;
+}
