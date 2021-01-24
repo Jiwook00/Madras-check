@@ -10,6 +10,8 @@
 
 </details> 
 
+[배포링크](https://bit.ly/3qK2NhC)
+
 ### 필수 구현 내용
 
 <details>
