@@ -29,8 +29,7 @@ router.post("/", async (req, res) => {
     } else {
       await fixed.update({ check: 0 }, { where: { id } });
     }
-
-    res.sendStatus(200);
+    return res.sendStatus(200);
   } catch (e) {
     return res.sendStatus(500);
   }

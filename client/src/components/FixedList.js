@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FixedItem from "./FixedItem";
+import "./FixedList.css";
 
 class FixedList extends Component {
   render() {
@@ -7,7 +8,7 @@ class FixedList extends Component {
     return (
       <>
         <div className="fixed-list">
-          고정 확장자
+          <span className="fixed-extension">고정 확장자</span>
           {fixedData.map((data, id) => (
             <FixedItem key={id} data={data} fetchFixData={fetchFixData} />
           ))}

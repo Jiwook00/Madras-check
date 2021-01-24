@@ -8,16 +8,11 @@
   padding-bottom: 3px;
   padding-left: 3px;
   padding-right: 2px;
-}
-
-.remove {
-  margin-right: 1rem;
-  color: #e64980;
-  font-weight: 600;
-  opacity: 0;
+  border-radius: 4px;
 }
 
 .custom-button {
   border: none;
+  outline: none;
   margin-left: 3px;
 }

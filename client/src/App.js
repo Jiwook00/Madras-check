@@ -38,20 +38,25 @@ class App extends Component {
   }
 
   handelCreate = () => {
-    fetch("http://localhost:4000/custom", {
-      method: "POST",
-      body: JSON.stringify({ inputCustom: this.state.inputCustom }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((data) => {
-      if (data.status === 400) {
-        alert("이미 있는 확장자 입니다.");
-      } else if (data.status === 201) {
-        this.fetchCustomData();
-        this.setState({ inputCustom: "" });
-      }
-    });
+    if (this.state.customData.length < 200 && this.state.inputCustom !== "") {
+      fetch("http://localhost:4000/custom", {
+        method: "POST",
+        body: JSON.stringify({ inputCustom: this.state.inputCustom }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((data) => {
+        if (data.status === 400) {
+          this.setState({ inputCustom: "" });
+          alert("이미 있는 확장자입니다.");
+        } else if (data.status === 201) {
+          this.fetchCustomData();
+          this.setState({ inputCustom: "" });
+        }
+      });
+    } else {
+      return alert("확장자를 추가할 수 없습니다.");
+    }
   };
 
   componentDidMount() {
@@ -82,7 +87,7 @@ class App extends Component {
     } = this;
     return (
       <>
-        <header>파일 확장자 차단</header>
+        <h1>파일 확장자 차단</h1>
         <div className="explain">
           파일확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록 제한
         </div>
@@ -93,13 +98,18 @@ class App extends Component {
           />
         </div>
         <div className="custom-input">
-          <span>커스텀 확장자</span>
+          <span className="custom-extension">커스텀 확장자</span>
           <input
+            type="text"
+            maxLength="20"
             value={inputCustom}
+            placeholder="확장자 입력"
             onChange={handelInputChange}
             onKeyDownCapture={handelKeyPres}
           />
-          <button onClick={handelCreate}>추가</button>
+          <button className="create-button" onClick={handelCreate}>
+            추가
+          </button>
         </div>
         <div>
           <CustomList

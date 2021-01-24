@@ -1,12 +1,11 @@
-require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = 4000;
 const cors = require("cors");
 const { sequelize } = require("./models");
 
-const fixrouter = require("./routes/fixedList");
-const custom = require("./routes/custom");
+const fixRouter = require("./routes/fixedList");
+const customRouter = require("./routes/custom");
 
 app.use(
   cors({
@@ -30,8 +29,8 @@ app.get("/", (req, res) => {
   res.status(200).send("hello world");
 });
 
-app.use("/fixed", fixrouter);
-app.use("/custom", custom);
+app.use("/fixed", fixRouter);
+app.use("/custom", customRouter);
 
 app.listen(port, () => {
   console.log(`connected port: ${port}`);
