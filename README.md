@@ -65,6 +65,7 @@
 - 확장자를 빈칸으로 추가하거나 200개를 초과했을때 경고 메시지를 띄어서 추가되지 못하도록 했습니다.
 - 추가한 확장자가 칸을 넘어가면 스크롤 할 수 있도록 했습니다.
 
+## [API 문서](https://app.gitbook.com/@jwkim775/s/madras-check/)
 
 ## DB diagram
 ![img](https://user-images.githubusercontent.com/66004962/105621933-19500000-5e50-11eb-9484-e6bb20557530.png)
@@ -73,4 +74,3 @@
 ## 기능 Flow
 ![img](https://user-images.githubusercontent.com/66004962/105621941-2cfb6680-5e50-11eb-9912-4ef2d612c388.png)
 
-## [API 문서](https://app.gitbook.com/@jwkim775/s/madras-check/)
